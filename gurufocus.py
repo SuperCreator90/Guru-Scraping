@@ -1,3 +1,31 @@
+
+#getting GF value
+def get_GF_Value(ticker):
+    import requests
+    from lxml import html
+
+    # Send an HTTP GET request to the URL
+    url = f"https://www.gurufocus.com/stock/{ticker}/summary"
+    response = requests.get(url)
+
+    tree = html.fromstring(response.content)
+
+    xpath_expression = '//span[@class="t-primary"]/text()'
+    key = 'GF Value'
+
+    element = tree.xpath(xpath_expression)
+
+    elements = dict()    
+    if element:
+        elements[key] = float(element[0].replace('$',''))
+        print(f"Return on {key} : {elements[key]}")
+    else:
+        elements[key]=0
+        print("information not found on the webpage.")
+
+    return elements
+
+
 #getting some ratio from gurufocus website by providing xhtml 
 def get_ratio_gurufocus(ticker):
 

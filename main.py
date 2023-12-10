@@ -49,3 +49,27 @@ DFfinal.to_csv('GuruFocus.csv')
 
 DFfinal_merged= pd.merge(DFfinal,DFUSA,on='Ticker')
 DFfinal_merged.to_csv('GuruFocus_merged.csv')
+
+
+#Fixing non-value items
+DFfinal_merged = pd.read_csv('GuruFocus_merged.csv')
+DFfinal_merged.info()
+
+import numpy as np
+
+# Define a function to replace non-float strings with NaN
+def replace_non_float_with_nan(value):
+    if isinstance(value, str) and not value.replace(".", "", 1).isdigit():
+        return np.nan
+    return value
+
+# Apply the function to the entire DataFrame
+# df = DFfinal_merged.applymap(replace_non_float_with_nan)
+# Apply the function to the specific column "Column1"
+df = DFfinal_merged.copy()
+for column in DFfinal_merged:
+    if column not in ['Ticker', 'Sector' , 'Industry']:
+        df[column] = DFfinal_merged[column].apply(replace_non_float_with_nan)
+        
+               
+df
