@@ -55,4 +55,4 @@ DFtotal = DFmerge.merge(DFUSA)
 
 DFtotal['GFValuediff'] = 100* (DFtotal['GF Value'] - DFtotal['Price']) / DFtotal['Price']
 DFtotal.to_csv('GFvalue.csv')
-DFtotal.query('`Market Capitalization`>100e9 & `GF Value`>0').sort_values(by='GFValuediff',ascending=True).head(10)
+DFtotal.query('`Market Capitalization`>1e9 & `GF Value`>0').sort_values(by='GFValuediff',ascending=False).head(20)
