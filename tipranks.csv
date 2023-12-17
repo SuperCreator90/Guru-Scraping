@@ -1,7 +1,149 @@
-,rank,Ticker,Price,Market Capitalization,Sector,Industry
-0,9,NVDA,465.96,1150921178893.9998,Electronic Technology,Semiconductors
-1,7,MSFT,370.95,2756997937552.0,Technology Services,Packaged Software
-2,10,GOOGL,136.93,1722517812790.0,Technology Services,Internet Software/Services
-3,7,GOOG,138.45,1722517812790.0,Technology Services,Internet Software/Services
-4,9,AMZN,146.88,1517862560459.0,Retail Trade,Internet Retail
-5,8,AAPL,194.27,3021433188382.0,Electronic Technology,Telecommunications Equipment
+SmartScore,Ticker,Price,Market Capitalization,Sector,Industry
+7,XOM,98.42,394283632127.0,Energy Minerals,Integrated Oil
+8,WMT,152.46,410457959223.0,Retail Trade,Specialty Stores
+8,WFC/PZ,19.62,164876445581.0,Finance,Major Banks
+8,WFC/PY,23.36,164876445581.0,Finance,Major Banks
+8,WFC/PR,25.04,164876445581.0,Finance,Major Banks
+8,WFC/PL,1142.2975,164876445581.0,Finance,Major Banks
+8,WFC/PD,17.69,164876445581.0,Finance,Major Banks
+8,WFC/PC,18.08,164876445581.0,Finance,Major Banks
+8,WFC/PA,19.8,164876445581.0,Finance,Major Banks
+8,WFC,45.4,164876445581.00003,Finance,Major Banks
+7,VZ,38.65,162488531806.00003,Communications,Wireless Telecommunications
+9,V,255.82,513749174458.0,Commercial Services,Miscellaneous Commercial Services
+9,UPS,156.5,133326359497.99998,Transportation,Air Freight/Couriers
+7,UNP,231.49,141115722407.0,Transportation,Railroads
+10,UNH,548.27,507108808441.0,Health Services,Managed Health Care
+5,UL,47.94,119825331674.752,Consumer Non-Durables,Household/Personal Care
+7,UBER,60.98,125488189306.99998,Transportation,Other Transportation
+5,TXN,157.68,143205606458.0,Electronic Technology,Semiconductors
+10,TTE,65.51,153688725507.6316,Energy Minerals,Integrated Oil
+8,TSM,99.29,466687436933.4375,Electronic Technology,Semiconductors
+4,TSLA,242.64,771333483333.0,Consumer Durables,Motor Vehicles
+6,TMUS,156.36,180826427888.00003,Communications,Wireless Telecommunications
+9,TMO,494.1,190906562930.0,Health Technology,Medical Specialties
+9,TM,190.24,262523704265.05164,Consumer Durables,Motor Vehicles
+9,TJX,88.89,101305877157.0,Retail Trade,Apparel/Footwear Retail
+7,TD,59.35,106320917662.73674,Finance,Major Banks
+7,T/PC,19.0,122193843225.0,Communications,Wireless Telecommunications
+7,T/PA,20.11,122193843225.0,Communications,Wireless Telecommunications
+7,T,17.09,122193843225.00002,Communications,Wireless Telecommunications
+9,SYK,289.38,109933916633.0,Health Technology,Medical Specialties
+8,SPGI,417.38,132225980452.0,Commercial Services,Financial Publishing/Services
+5,SONY,88.51,111084382871.73152,Electronic Technology,Computer Processing Hardware
+8,SNY,46.06,115418724172.14914,Health Technology,Pharmaceuticals: Major
+5,SHEL,63.27,203927634807.0544,Energy Minerals,Integrated Oil
+9,SCHW/PJ,18.89,114797698923.0,Finance,Investment Banks/Brokers
+9,SCHW/PD,24.93,114797698923.0,Finance,Investment Banks/Brokers
+9,SCHW,62.96,114797698923.00002,Finance,Investment Banks/Brokers
+6,SBUX,96.44,109623346066.0,Consumer Services,Restaurants
+6,SAP,159.34,185309478926.3774,Technology Services,Packaged Software
+8,RY,91.42,128204912670.27928,Finance,Major Banks
+5,RTX,81.5,117188951476.99998,Electronic Technology,Aerospace & Defense
+10,RIO,70.44,118947379541.6464,Non-Energy Minerals,Other Metals/Minerals
+6,QCOM,132.94,147962222717.0,Electronic Technology,Semiconductors
+6,PM,91.12,141455239518.0,Consumer Non-Durables,Tobacco
+10,PLD,118.95,112681452046.0,Finance,Real Estate Investment Trusts
+10,PG,146.5,345283832764.0,Consumer Non-Durables,Household/Personal Care
+6,PFE,28.63,161656815891.0,Health Technology,Pharmaceuticals: Major
+10,PEP,167.46,230234736960.0,Consumer Non-Durables,Beverages: Non-Alcoholic
+10,PDD,140.29,186387475199.0,Retail Trade,Department Stores
+7,ORCL,112.87,309193373999.0,Technology Services,Packaged Software
+7,NVS,95.93,199062821270.33093,Health Technology,Pharmaceuticals: Major
+10,NVO,96.81,431960091012.9334,Health Technology,Pharmaceuticals: Major
+9,NVDA,465.96,1150921178893.9998,Electronic Technology,Semiconductors
+7,NOW,687.68,140974398499.0,Technology Services,Packaged Software
+10,NKE,114.81,174742287848.0,Consumer Non-Durables,Apparel/Footwear
+7,NFLX,452.0,197831204956.00003,Technology Services,Data Processing Services
+7,NEE/PR,37.6,122794706525.0,Utilities,Electric Utilities
+7,NEE,59.85,122794706524.99998,Utilities,Electric Utilities
+8,MUFG,8.68,100720255724.47006,Finance,Major Banks
+7,MSFT,370.95,2756997937552.0,Technology Services,Packaged Software
+7,MS/PP,25.99,131879388211.99998,Finance,Investment Banks/Brokers
+7,MS/PO,18.66,131879388211.99998,Finance,Investment Banks/Brokers
+7,MS/PL,21.25,131879388211.99998,Finance,Investment Banks/Brokers
+7,MS/PK,23.98,131879388211.99998,Finance,Investment Banks/Brokers
+7,MS/PI,25.03,131879388211.99998,Finance,Investment Banks/Brokers
+7,MS/PF,25.21,131879388211.99998,Finance,Investment Banks/Brokers
+7,MS/PE,25.3,131879388211.99998,Finance,Investment Banks/Brokers
+7,MS/PA,21.7,131879388211.99998,Finance,Investment Banks/Brokers
+7,MS,80.35,131879388212.0,Finance,Investment Banks/Brokers
+9,MRK,103.88,263234297005.0,Health Technology,Pharmaceuticals: Major
+9,META,326.59,839291430054.0,Technology Services,Internet Software/Services
+10,MDT,79.55,105774003374.0,Health Technology,Medical Specialties
+6,MCD,286.79,208020832637.0,Consumer Services,Restaurants
+8,MA,413.15,387442168283.0,Commercial Services,Miscellaneous Commercial Services
+5,LOW,208.3,119795958390.00002,Retail Trade,Home Improvement Chains
+8,LMT,447.11,110927417017.0,Electronic Technology,Aerospace & Defense
+10,LLY,588.27,558448995073.0,Health Technology,Pharmaceuticals: Major
+8,LIN,398.65,193301596033.0,Process Industries,Chemicals: Specialty
+9,KO,58.74,253957349288.00003,Consumer Non-Durables,Beverages: Non-Alcoholic
+9,JPM/PM,18.8,453281172070.0,Finance,Major Banks
+9,JPM/PL,20.48,453281172070.0,Finance,Major Banks
+9,JPM/PK,20.15,453281172070.0,Finance,Major Banks
+9,JPM/PJ,20.81,453281172070.0,Finance,Major Banks
+9,JPM/PD,24.5,453281172070.0,Finance,Major Banks
+9,JPM/PC,25.1,453281172070.0,Finance,Major Banks
+9,JPM,156.79,453281172069.9999,Finance,Major Banks
+6,JNJ,155.4,374091074223.0,Health Technology,Pharmaceuticals: Major
+10,ISRG,311.56,109691425041.0,Health Technology,Medical Specialties
+8,INTU,571.49,159980624557.0,Technology Services,Packaged Software
+10,INTC,42.15,177704406432.99997,Electronic Technology,Semiconductors
+7,IBM,160.22,146299861814.0,Technology Services,Information Technology Services
+7,HSBC,38.82,149045549807.3216,Finance,Major Banks
+8,HON,197.79,130393173794.99998,Electronic Technology,Aerospace & Defense
+7,HDB,63.36,148324888435.7735,Finance,Regional Banks
+7,HD,326.17,324624587892.0,Retail Trade,Home Improvement Chains
+8,GS/PK,25.3,112384873434.0,Finance,Investment Banks/Brokers
+8,GS/PD,21.63,112384873434.0,Finance,Investment Banks/Brokers
+8,GS/PC,21.68,112384873434.0,Finance,Investment Banks/Brokers
+8,GS/PA,21.48,112384873434.0,Finance,Investment Banks/Brokers
+8,GS,344.62,112384873434.0,Finance,Investment Banks/Brokers
+10,GOOGL,136.93,1722517812790.0,Technology Services,Internet Software/Services
+7,GOOG,138.45,1722517812790.0,Technology Services,Internet Software/Services
+9,GE,119.48,130040361300.0,Producer Manufacturing,Industrial Machinery
+6,ELV,476.96,112066107958.0,Health Services,Managed Health Care
+10,DIS,92.35,169029672232.00003,Consumer Services,Movies/Entertainment
+7,DHR,218.92,161765924638.00003,Health Technology,Medical Specialties
+8,DE,361.22,104031558776.00002,Producer Manufacturing,Trucks/Construction/Farm Machinery
+5,CVX,142.42,268041321114.0,Energy Minerals,Integrated Oil
+3,CSCO,48.26,196103336739.0,Technology Services,Information Technology Services
+10,CRM,248.85,240886805908.0,Technology Services,Packaged Software
+9,COST,610.95,270492356688.00003,Retail Trade,Specialty Stores
+8,COP,110.85,131624170442.0,Energy Minerals,Oil & Gas Production
+9,CMCSA,42.17,169737600581.0,Consumer Services,Cable/Satellite TV
+10,CAT,257.41,131043506670.99998,Producer Manufacturing,Trucks/Construction/Farm Machinery
+7,BX,113.86,137717538646.00003,Finance,Investment Managers
+9,BUD,62.88,124511333017.46408,Consumer Non-Durables,Beverages: Alcoholic
+5,BRK.B,352.7,768940520138.0001,Finance,Property/Casualty Insurance
+8,BRK.A,537780.0,768940520138.0,Finance,Property/Casualty Insurance
+10,BMY,50.16,102063445441.0,Health Technology,Pharmaceuticals: Major
+9,BLK,745.44,110893493339.0,Finance,Investment Managers
+7,BKNG,3238.27,112982819002.0,Consumer Services,Other Consumer Services
+7,BHP,62.69,158624572894.00992,Non-Energy Minerals,Steel
+10,BAC/PS,20.05,242635019876.0,Finance,Major Banks
+10,BAC/PQ,18.12,242635019876.0,Finance,Major Banks
+10,BAC/PP,17.66,242635019876.0,Finance,Major Banks
+10,BAC/PO,18.72,242635019876.0,Finance,Major Banks
+10,BAC/PN,21.08,242635019876.0,Finance,Major Banks
+10,BAC/PM,22.45,242635019876.0,Finance,Major Banks
+10,BAC/PL,1164.0,242635019876.0,Finance,Major Banks
+10,BAC/PK,24.32,242635019876.0,Finance,Major Banks
+10,BAC/PE,21.54,242635019876.0,Finance,Major Banks
+10,BAC/PB,24.85,242635019876.0,Finance,Major Banks
+10,BAC,30.66,242635019876.0,Finance,Major Banks
+8,BABA,72.33,181517124968.45667,Retail Trade,Internet Retail
+10,BA,237.33,143579146627.99997,Electronic Technology,Aerospace & Defense
+10,AZN,63.51,197079356226.08,Health Technology,Pharmaceuticals: Major
+8,AXP,168.62,122881070144.00002,Finance,Finance/Rental/Leasing
+10,AVGO,922.26,430825426971.0,Electronic Technology,Semiconductors
+9,ASML,699.65,279276380505.1051,Electronic Technology,Semiconductors
+9,AMZN,146.88,1517862560459.0,Retail Trade,Internet Retail
+9,AMGN,271.31,145199136044.00003,Health Technology,Pharmaceuticals: Major
+9,AMD,128.37,207381586080.00003,Electronic Technology,Semiconductors
+9,AMAT,148.39,124133261128.0,Producer Manufacturing,Industrial Machinery
+8,ADBE,608.78,277177539907.0,Technology Services,Packaged Software
+9,ACN,335.1,210312825773.00003,Technology Services,Information Technology Services
+9,ABT,104.05,180636889276.0,Health Technology,Medical Specialties
+10,ABBV,147.97,261246564355.00003,Health Technology,Pharmaceuticals: Major
+8,AAPL,194.27,3021433188382.0,Electronic Technology,Telecommunications Equipment
