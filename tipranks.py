@@ -79,7 +79,7 @@ import time
 #get ticker list by filtering only above 1 billion dollar company
 DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2023-12-22.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
 # DFUSA = pd.read_csv('america_2023-09-16.csv')
-tickerlst = list(DFUSA.query('`Market Capitalization`>1e6').Ticker)
+tickerlst = list(DFUSA.query('`Market Capitalization`>1e9').Ticker)
 print(f"Number of Tickers: {len(tickerlst)}")
 
 # Main loop to retrieve profitability ranks for each ticker
@@ -88,6 +88,8 @@ counter=0
 for ticker in tickerlst:
     counter+=1
     print(f'{counter} out of {len(tickerlst)} {ticker}')
+    if '\\' in ticker:
+        pass
     # try:
     # Get profitability rank for the current ticker
     # value = "-1"
@@ -95,16 +97,17 @@ for ticker in tickerlst:
     #     valuedic = get_tiprank_value(ticker)
     #     value = valuedic['rank']
 
-    time.sleep(30)  # Pause for 1 second
-    # dftemp = pd.DataFrame(get_tiprank_value(ticker).values(), columns=['SmartScore'])    
-    dftemp = pd.DataFrame([get_tiprank_values(ticker)])
+    try:
+        time.sleep(15)  # Pause for 15 seconds
+        # dftemp = pd.DataFrame(get_tiprank_value(ticker).values(), columns=['SmartScore'])    
+        dftemp = pd.DataFrame([get_tiprank_values(ticker)])
 
-    # Add the Ticker column for reference
-    dftemp['Ticker'] = ticker
-    dfs.append(dftemp)
-    # except:
-    #     print(f"could not retrieve data for {ticker}")
-    #     pass
+        # Add the Ticker column for reference
+        dftemp['Ticker'] = ticker
+        dfs.append(dftemp)
+    except:
+        print(f"could not retrieve data for {ticker}")
+        pass
 
 # Concatenate the DataFrames in the list to create a single DataFrame    
 DFmerge = pd.concat(dfs, ignore_index=True)    
