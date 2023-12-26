@@ -88,7 +88,7 @@ counter=0
 for ticker in tickerlst:
     counter+=1
     print(f'{counter} out of {len(tickerlst)} {ticker}')
-    if '\\' in ticker:
+    if '/' in ticker:
         pass
     # try:
     # Get profitability rank for the current ticker
@@ -115,8 +115,8 @@ DFtotal = DFmerge.merge(DFUSA)
 
 DFtotal['AveragePriceTarget_percent'] = 100 * (DFtotal['AveragePriceTarget'] - DFtotal['Price']) /DFtotal['Price']
 
-DFtotal.to_csv('tipranks3.csv' , index=False)
+DFtotal.to_csv('tipranks.csv' , index=False)
 
-DFtotal = pd.read_csv('tipranks3.csv')
+DFtotal = pd.read_csv('tipranks.csv')
 DFtotal.query('`Market Capitalization`>1e9 & `SmartScore`>0').sort_values(by='SmartScore',ascending=True).head(20)
 

@@ -27,9 +27,9 @@ import requests
 
 from gurufocus import get_GF_Value
 #get ticker list by filtering only above 1 billion dollar company
-DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2023-12-08.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
+DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2023-12-22.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
 # DFUSA = pd.read_csv('america_2023-09-16.csv')
-tickerlst = list(DFUSA.query('`Market Capitalization`>.1e9').Ticker)
+tickerlst = list(DFUSA.query('`Market Capitalization`>1e9').Ticker)
 print(f"Number of Tickers: {len(tickerlst)}")
 
 # Main loop to retrieve profitability ranks for each ticker
