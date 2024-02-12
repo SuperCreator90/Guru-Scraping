@@ -2,9 +2,13 @@ import numpy as np
 import pandas as pd
 import requests
 import os 
+from datetime import datetime
 
 from gurufocus import get_all_ratio
 from gurufocus import get_GF_Value
+
+# Get current date and time
+current_datetime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 # Create the gurufocus folder if it doesn't exist
 if not os.path.exists('gurufocus'):
@@ -12,7 +16,7 @@ if not os.path.exists('gurufocus'):
 
 #get ticker list by filtering only above 1 billion dollar company
 DFUSA = pd.read_csv('america_2023-09-16.csv')
-tickerlst = list(DFUSA.query('`Market Capitalization`>100e9').Ticker)
+tickerlst = list(DFUSA.query('`Market Capitalization`>1e9').Ticker)
 print(f"Number of Tickers: {len(tickerlst)}")
 
 # Main loop to retrieve profitability ranks for each ticker
@@ -34,7 +38,7 @@ for ticker in tickerlst:
 
 # Concatenate the DataFrames in the list to create a single DataFrame    
 DFtotal = pd.concat(dfs, ignore_index=True)    
-# DFtotal.to_csv(f'gurufocus/DFtotal.csv',index=False)
+# DFtotal.to_csv(f'gurufocus/DFtotal_{current_datetime}.csv',index=False)
 
 # Function to check if a string can be converted to a number to remove it
 def is_convertible_to_number(value):
@@ -53,7 +57,7 @@ df_filtered = df_filtered.drop_duplicates(subset=['Ticker', 'Name'])
 DFfinal = df_filtered.pivot(index='Ticker',columns='Name', values='Current')
 DFfinal = DFfinal.reset_index()
 # Save the final DataFrame to a CSV file
-# DFfinal.to_csv(f'gurufocus/GuruFocus.csv')
+# DFfinal.to_csv(f'gurufocus/GuruFocus_{current_datetime}.csv')
 
 DFfinal_merged= pd.merge(DFfinal,DFUSA[['Ticker','Market Capitalization','Industry','Sector']],on='Ticker')
 
@@ -73,4 +77,4 @@ for column in DFfinal_merged:
     if column not in ['Ticker', 'Sector' , 'Industry']:
         df[column] = DFfinal_merged[column].apply(replace_non_float_with_nan)
         
-df.to_csv(f'gurufocus/GuruFocus_merged.csv',index=False)
+df.to_csv(f'gurufocus/GuruFocus_merged_{current_datetime}.csv',index=False)
