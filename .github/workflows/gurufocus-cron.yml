@@ -23,7 +23,7 @@ jobs:
 
       # Step 3: Install dependencies
       - name: Install pandas
-        run: pip install pandas
+        run: pip install -r requirements.txt
 
       # Step 4: Execute the Python script to create a CSV
       - name: Generate CSV
