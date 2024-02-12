@@ -186,13 +186,17 @@ def get_all_ratio(ticker):
     key = 'GF Value'
 
     element = tree.xpath(xpath_expression)
-
-    elements = dict()    
     if element:
-        elementsvalue = float(element[0].replace('$',''))
+        gfvalue = float(element[0].replace('$',''))
     else:
-        elementsvalue=0
+        gfvalue=0
 
+    xpath_expression = '//span[@class="bold t-body-lg"]/text()'
+    element = tree.xpath(xpath_expression)
+    if element:
+        closeprice = float(element[0].replace('$',''))
+    else:
+        closeprice=0
 
     dfs = []
     for i in range(1,3):
@@ -226,7 +230,8 @@ def get_all_ratio(ticker):
                 df = pd.DataFrame(pairs, columns=columns)
                 
                 #Add GF Value
-                df.loc[df.index[-1] + 1] = {'Name':'GFValue' , 'Current':elementsvalue}
+                df.loc[df.index[-1] + 1] = {'Name':'GFValue' , 'Current':gfvalue}
+                df.loc[df.index[-1] + 1] = {'Name':'ClosePrice' , 'Current':closeprice}
 
                 dfs.append(df)
                 

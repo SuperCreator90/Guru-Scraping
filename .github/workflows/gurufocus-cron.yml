@@ -1,11 +1,14 @@
 name: Gurufocus Crawling Pipeline
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Runs at every minute
-    - cron: "*/1 * * * *"
+    # - cron: "*/1 * * * *"
     # Runs at every day
-    # - cron: "0 0 * * *"
+    - cron: "0 0 * * *"
 
 jobs:
   generate-gurufocus-csv-and-commit:
