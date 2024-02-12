@@ -32,8 +32,8 @@ jobs:
       # Step 5: Commit and push the generated CSV file if there are changes
       - name: Commit files
         run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          # git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # git config --local user.name "github-actions[bot]"
           git add gurufocus/*
           git commit -a -m "Add changes"
       - name: Push changes
