@@ -77,9 +77,9 @@ import requests
 import time
 
 #get ticker list by filtering only above 1 billion dollar company
-DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2023-12-22.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
+DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2024-02-09.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
 # DFUSA = pd.read_csv('america_2023-09-16.csv')
-tickerlst = list(DFUSA.query('`Market Capitalization`>1e9').Ticker)
+tickerlst = list(DFUSA.query('`Market Capitalization`>.1e6').Ticker)
 print(f"Number of Tickers: {len(tickerlst)}")
 
 # Main loop to retrieve profitability ranks for each ticker
@@ -120,3 +120,16 @@ DFtotal.to_csv('tipranks.csv' , index=False)
 DFtotal = pd.read_csv('tipranks.csv')
 DFtotal.query('`Market Capitalization`>1e9 & `SmartScore`>0').sort_values(by='SmartScore',ascending=True).head(20)
 
+
+#Merging with Gurufocus
+DFgurufocus = pd.read_csv('GFvalue.csv')[['Ticker' , 'GF Value' , 'GFValuediff']]
+DFmerge_tipranks_gurufocus = DFgurufocus.merge(DFtotal)
+DFmerge_tipranks_gurufocus.to_csv('DFmerge_tipranks_gurufocus.csv',index=False)
+
+list(DFmerge_tipranks_gurufocus.query('SmartScore>8 & GFValuediff>25 & `Market Capitalization`>10e9').Ticker)
+DFmerge_tipranks_gurufocus.query('SmartScore>8 & GFValuediff>25 & `Market Capitalization`>25e9')
+
+DFmerge_tipranks_gurufocus.query('Ticker == "AEP"').T
+DFmerge_tipranks_gurufocus.query('Ticker == "FIS"').T
+
+DFmerge_tipranks_gurufocus.query('SmartScore>9 & GFValuediff>25 & `Market Capitalization`>10e9')

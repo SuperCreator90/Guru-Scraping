@@ -1,7 +1,14 @@
+import numpy as np
 import pandas as pd
 import requests
+import os 
 
 from gurufocus import get_all_ratio
+from gurufocus import get_GF_Value
+
+# Create the gurufocus folder if it doesn't exist
+if not os.path.exists('gurufocus'):
+    os.makedirs('gurufocus')
 
 #get ticker list by filtering only above 1 billion dollar company
 DFUSA = pd.read_csv('america_2023-09-16.csv')
@@ -17,6 +24,7 @@ for ticker in tickerlst:
     try:
         # Get profitability rank for the current ticker
         dftemp = get_all_ratio(ticker)
+        
         # Add the Ticker column for reference
         dftemp['Ticker'] = ticker
         dfs.append(dftemp)
@@ -26,7 +34,7 @@ for ticker in tickerlst:
 
 # Concatenate the DataFrames in the list to create a single DataFrame    
 DFtotal = pd.concat(dfs, ignore_index=True)    
-DFtotal.to_csv('DFtotal.csv')
+# DFtotal.to_csv(f'gurufocus/DFtotal.csv',index=False)
 
 # Function to check if a string can be converted to a number to remove it
 def is_convertible_to_number(value):
@@ -45,17 +53,11 @@ df_filtered = df_filtered.drop_duplicates(subset=['Ticker', 'Name'])
 DFfinal = df_filtered.pivot(index='Ticker',columns='Name', values='Current')
 DFfinal = DFfinal.reset_index()
 # Save the final DataFrame to a CSV file
-DFfinal.to_csv('GuruFocus.csv')
+# DFfinal.to_csv(f'gurufocus/GuruFocus.csv')
 
-DFfinal_merged= pd.merge(DFfinal,DFUSA,on='Ticker')
-DFfinal_merged.to_csv('GuruFocus_merged.csv')
-
+DFfinal_merged= pd.merge(DFfinal,DFUSA[['Ticker','Market Capitalization','Industry','Sector']],on='Ticker')
 
 #Fixing non-value items
-DFfinal_merged = pd.read_csv('GuruFocus_merged.csv')
-DFfinal_merged.info()
-
-import numpy as np
 
 # Define a function to replace non-float strings with NaN
 def replace_non_float_with_nan(value):
@@ -71,5 +73,4 @@ for column in DFfinal_merged:
     if column not in ['Ticker', 'Sector' , 'Industry']:
         df[column] = DFfinal_merged[column].apply(replace_non_float_with_nan)
         
-               
-df
+df.to_csv(f'gurufocus/GuruFocus_merged.csv',index=False)

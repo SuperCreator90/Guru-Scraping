@@ -26,7 +26,7 @@ def get_GF_Value(ticker):
     return elements
 
 
-#getting some ratio from gurufocus website by providing xhtml 
+#getting some ratio (specified in get_xhtml dict) from gurufocus website by providing xhtml 
 def get_ratio_gurufocus(ticker):
 
     import requests
@@ -59,7 +59,7 @@ def get_ratio_gurufocus(ticker):
 #get_ratio_gurufocus(ticker="NKE")    
 
 
-#getting some ratio from gurufocus website by providing xhtml 
+#getting some ratio (profitability_rank section) from gurufocus website by providing xhtml 
 def get_profitability_rank(ticker):
     
     import requests
@@ -104,7 +104,7 @@ def get_profitability_rank(ticker):
     return df
 
 
-#getting some ratio from gurufocus website by providing xhtml 
+#getting some ratio from gurufocus website by providing xhtml by table name
 def get_table_gurufocus(ticker,tablename):
     #table name should be one of 
     # FinancialStrength
@@ -166,8 +166,8 @@ def get_table_gurufocus(ticker,tablename):
 # get_table_gurufocus(ticker='NKE',tablename='FinancialStrength')
 
 
-
-def get_profitability_rank(ticker):
+#get all five ratio from gurufocus and return as dataframe
+def get_all_ratio(ticker):
 
     import requests
     import pandas as pd
@@ -181,6 +181,18 @@ def get_profitability_rank(ticker):
 
     # Parse the HTML content of the response
     tree = html.fromstring(response.content)
+
+    xpath_expression = '//span[@class="t-primary"]/text()'
+    key = 'GF Value'
+
+    element = tree.xpath(xpath_expression)
+
+    elements = dict()    
+    if element:
+        elementsvalue = float(element[0].replace('$',''))
+    else:
+        elementsvalue=0
+
 
     dfs = []
     for i in range(1,3):
@@ -212,6 +224,10 @@ def get_profitability_rank(ticker):
 
                 # Create a DataFrame from the list of pairs with appropriate column names
                 df = pd.DataFrame(pairs, columns=columns)
+                
+                #Add GF Value
+                df.loc[df.index[-1] + 1] = {'Name':'GFValue' , 'Current':elementsvalue}
+
                 dfs.append(df)
                 
                 # Return the resulting DataFrame containing profitability rank information
