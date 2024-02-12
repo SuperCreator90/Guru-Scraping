@@ -3,7 +3,7 @@ name: Gurufocus Crawling Pipeline
 on:
   schedule:
     # Runs at every minute
-    - cron: "*/5 * * * *"
+    - cron: "*/1 * * * *"
 
 jobs:
   generate-gurufocus-csv-and-commit:
