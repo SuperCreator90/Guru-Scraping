@@ -8,7 +8,8 @@ from gurufocus import get_all_ratio
 from gurufocus import get_GF_Value
 
 # Get current date and time
-current_datetime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+# current_datetime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+current_datetime = datetime.now().strftime("%Y-%m-%d")
 
 # Create the gurufocus folder if it doesn't exist
 if not os.path.exists('gurufocus'):
