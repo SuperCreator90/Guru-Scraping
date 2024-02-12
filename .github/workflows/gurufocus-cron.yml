@@ -22,7 +22,7 @@ jobs:
           python-version: "3.x" # Install the Python version needed
 
       # Step 3: Install dependencies
-      - name: Install pandas
+      - name: Install python libs
         run: pip install -r requirements.txt
 
       # Step 4: Execute the Python script to create a CSV

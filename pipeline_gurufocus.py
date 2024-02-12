@@ -12,7 +12,7 @@ if not os.path.exists('gurufocus'):
 
 #get ticker list by filtering only above 1 billion dollar company
 DFUSA = pd.read_csv('america_2023-09-16.csv')
-tickerlst = list(DFUSA.query('`Market Capitalization`>1000e9').Ticker)
+tickerlst = list(DFUSA.query('`Market Capitalization`>100e9').Ticker)
 print(f"Number of Tickers: {len(tickerlst)}")
 
 # Main loop to retrieve profitability ranks for each ticker
