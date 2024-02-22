@@ -79,7 +79,7 @@ import time
 #get ticker list by filtering only above 1 billion dollar company
 DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2024-02-09.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
 # DFUSA = pd.read_csv('america_2023-09-16.csv')
-tickerlst = list(DFUSA.query('`Market Capitalization`>.1e6').Ticker)
+tickerlst = list(DFUSA.query('`Market Capitalization`>1e9').Ticker)
 print(f"Number of Tickers: {len(tickerlst)}")
 
 # Main loop to retrieve profitability ranks for each ticker
@@ -115,7 +115,7 @@ DFtotal = DFmerge.merge(DFUSA)
 
 DFtotal['AveragePriceTarget_percent'] = 100 * (DFtotal['AveragePriceTarget'] - DFtotal['Price']) /DFtotal['Price']
 
-DFtotal.to_csv('tipranks.csv' , index=False)
+DFtotal.to_csv('tipranks_2024-02-24.csv' , index=False)
 
 DFtotal = pd.read_csv('tipranks.csv')
 DFtotal.query('`Market Capitalization`>1e9 & `SmartScore`>0').sort_values(by='SmartScore',ascending=True).head(20)

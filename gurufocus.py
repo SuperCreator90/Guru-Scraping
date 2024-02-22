@@ -172,12 +172,22 @@ def get_all_ratio(ticker):
     import requests
     import pandas as pd
     from lxml import html
-    
+    import random
+    from browsers import user_agents
+
+    random_browser = random.choice(list(user_agents.items()))
+    selected_browser_name = random_browser[0]
+    selected_browser_ua = random_browser[1]
+
+    headers = {
+        "User-Agent": selected_browser_ua
+    }
+        
     # Construct the URL for the GuruFocus summary page of the given ticker
     url = f"https://www.gurufocus.com/stock/{ticker}/summary"
 
     # Send an HTTP GET request to the URL
-    response = requests.get(url)
+    response = requests.get(url , headers=headers)
 
     # Parse the HTML content of the response
     tree = html.fromstring(response.content)
