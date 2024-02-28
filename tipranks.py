@@ -100,7 +100,7 @@ for ticker in tickerlst:
     try:
         time.sleep(15)  # Pause for 15 seconds
         # dftemp = pd.DataFrame(get_tiprank_value(ticker).values(), columns=['SmartScore'])    
-        dftemp = pd.DataFrame([get_tiprank_values(ticker)])
+        dftemp = pd.DataFrame([get_tiprank_value(ticker)])
 
         # Add the Ticker column for reference
         dftemp['Ticker'] = ticker
@@ -115,14 +115,18 @@ DFtotal = DFmerge.merge(DFUSA)
 
 DFtotal['AveragePriceTarget_percent'] = 100 * (DFtotal['AveragePriceTarget'] - DFtotal['Price']) /DFtotal['Price']
 
-DFtotal.to_csv('tipranks_2024-02-24.csv' , index=False)
+import os
+if not os.path.exists('./tipranks'):
+    os.mkdir('tipranks')
+    
+DFtotal.to_csv(r'.\tipranks\tipranks_2024-02-28.csv' , index=False)
 
 DFtotal = pd.read_csv('tipranks.csv')
 DFtotal.query('`Market Capitalization`>1e9 & `SmartScore`>0').sort_values(by='SmartScore',ascending=True).head(20)
 
 
 #Merging with Gurufocus
-DFgurufocus = pd.read_csv('GFvalue.csv')[['Ticker' , 'GF Value' , 'GFValuediff']]
+DFgurufocus = pd.read_csv(r'.\gurufocus\GuruFocus_merged_2024-02-20.csv')[['Ticker' , 'GF Value']] # , 'GFValuediff']]
 DFmerge_tipranks_gurufocus = DFgurufocus.merge(DFtotal)
 DFmerge_tipranks_gurufocus.to_csv('DFmerge_tipranks_gurufocus.csv',index=False)
 
