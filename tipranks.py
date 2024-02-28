@@ -75,6 +75,8 @@ def get_tiprank_values(ticker):
 import pandas as pd
 import requests
 import time
+import os
+from datetime import datetime
 
 #get ticker list by filtering only above 1 billion dollar company
 DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2024-02-09.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
@@ -115,25 +117,35 @@ DFtotal = DFmerge.merge(DFUSA)
 
 DFtotal['AveragePriceTarget_percent'] = 100 * (DFtotal['AveragePriceTarget'] - DFtotal['Price']) /DFtotal['Price']
 
-import os
+
 if not os.path.exists('./tipranks'):
     os.mkdir('tipranks')
     
-DFtotal.to_csv(r'.\tipranks\tipranks_2024-02-28.csv' , index=False)
+current_datetime = datetime.now().strftime("%Y-%m-%d")    
+DFtotal.to_csv(rf'.\tipranks\tipranks_{current_datetime}.csv' , index=False)
 
-DFtotal = pd.read_csv('tipranks.csv')
+
+# Fill NaN values with 0 and convert the column to integer
+# DFtotal['SmarrtScore'] = DFtotal['SmarrtScore'].fillna(0).astype(int)
+
+#or re-read it
+DFtotal = pd.read_csv(rf'.\tipranks\tipranks_{current_datetime}.csv')
 DFtotal.query('`Market Capitalization`>1e9 & `SmartScore`>0').sort_values(by='SmartScore',ascending=True).head(20)
 
 
 #Merging with Gurufocus
-DFgurufocus = pd.read_csv(r'.\gurufocus\GuruFocus_merged_2024-02-20.csv')[['Ticker' , 'GF Value']] # , 'GFValuediff']]
+DFgurufocus = pd.read_csv(rf'.\gurufocus\GuruFocus_merged_{current_datetime}.csv')[['Ticker' , 'GFValue']] # , 'GFValuediff']]
 DFmerge_tipranks_gurufocus = DFgurufocus.merge(DFtotal)
-DFmerge_tipranks_gurufocus.to_csv('DFmerge_tipranks_gurufocus.csv',index=False)
 
-list(DFmerge_tipranks_gurufocus.query('SmartScore>8 & GFValuediff>25 & `Market Capitalization`>10e9').Ticker)
-DFmerge_tipranks_gurufocus.query('SmartScore>8 & GFValuediff>25 & `Market Capitalization`>25e9')
+if not os.path.exists(f'.\gurufocus_tipranks'):
+    os.mkdir(f'.\gurufocus_tipranks')
+DFmerge_tipranks_gurufocus.to_csv(f'.\gurufocus_tipranks\DFmerge_tipranks_gurufocus.csv',index=False)
 
-DFmerge_tipranks_gurufocus.query('Ticker == "AEP"').T
-DFmerge_tipranks_gurufocus.query('Ticker == "FIS"').T
 
-DFmerge_tipranks_gurufocus.query('SmartScore>9 & GFValuediff>25 & `Market Capitalization`>10e9')
+# list(DFmerge_tipranks_gurufocus.query('SmartScore>8 & GFValuediff>25 & `Market Capitalization`>10e9').Ticker)
+# DFmerge_tipranks_gurufocus.query('SmartScore>8 & GFValuediff>25 & `Market Capitalization`>25e9')
+
+# DFmerge_tipranks_gurufocus.query('Ticker == "AEP"').T
+# DFmerge_tipranks_gurufocus.query('Ticker == "FIS"').T
+
+# DFmerge_tipranks_gurufocus.query('SmartScore>9 & GFValuediff>25 & `Market Capitalization`>10e9')
