@@ -139,7 +139,7 @@ DFmerge_tipranks_gurufocus = DFgurufocus.merge(DFtotal)
 
 if not os.path.exists(f'.\gurufocus_tipranks'):
     os.mkdir(f'.\gurufocus_tipranks')
-DFmerge_tipranks_gurufocus.to_csv(f'.\gurufocus_tipranks\DFmerge_tipranks_gurufocus.csv',index=False)
+DFmerge_tipranks_gurufocus.to_csv(f'.\gurufocus_tipranks\DFmerge_tipranks_gurufocus.csv_{current_datetime}.csv',index=False)
 
 
 # list(DFmerge_tipranks_gurufocus.query('SmartScore>8 & GFValuediff>25 & `Market Capitalization`>10e9').Ticker)
