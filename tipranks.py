@@ -79,7 +79,7 @@ import os
 from datetime import datetime
 
 #get ticker list by filtering only above 1 billion dollar company
-DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2024-02-09.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
+DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2024-03-28.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
 # DFUSA = pd.read_csv('america_2023-09-16.csv')
 tickerlst = list(DFUSA.query('`Market Capitalization`>1e9').Ticker)
 print(f"Number of Tickers: {len(tickerlst)}")
