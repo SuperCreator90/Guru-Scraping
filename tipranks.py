@@ -79,7 +79,7 @@ import os
 from datetime import datetime
 
 #get ticker list by filtering only above 1 billion dollar company
-DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2024-03-28.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
+DFUSA = pd.read_csv(r"\\192.168.1.1\New Volume\storage\premarket\america_2024-05-09.csv")[['Ticker','Price','Market Capitalization','Sector','Industry']]
 # DFUSA = pd.read_csv('america_2023-09-16.csv')
 tickerlst = list(DFUSA.query('`Market Capitalization`>1e9').Ticker)
 print(f"Number of Tickers: {len(tickerlst)}")
@@ -129,17 +129,17 @@ DFtotal.to_csv(rf'.\tipranks\tipranks_{current_datetime}.csv' , index=False)
 # DFtotal['SmarrtScore'] = DFtotal['SmarrtScore'].fillna(0).astype(int)
 
 #or re-read it
-DFtotal = pd.read_csv(rf'.\tipranks\tipranks_{current_datetime}.csv')
-DFtotal.query('`Market Capitalization`>1e9 & `SmartScore`>0').sort_values(by='SmartScore',ascending=True).head(20)
+# DFtotal = pd.read_csv(rf'.\tipranks\tipranks_{current_datetime}.csv')
+# DFtotal.query('`Market Capitalization`>1e9 & `SmartScore`>0').sort_values(by='SmartScore',ascending=True).head(20)
 
 
-#Merging with Gurufocus
-DFgurufocus = pd.read_csv(rf'.\gurufocus\GuruFocus_merged_{current_datetime}.csv')[['Ticker' , 'GFValue']] # , 'GFValuediff']]
-DFmerge_tipranks_gurufocus = DFgurufocus.merge(DFtotal)
+# #Merging with Gurufocus
+# DFgurufocus = pd.read_csv(rf'.\gurufocus\GuruFocus_merged_{current_datetime}.csv')[['Ticker' , 'GFValue']] # , 'GFValuediff']]
+# DFmerge_tipranks_gurufocus = DFgurufocus.merge(DFtotal)
 
-if not os.path.exists(f'.\gurufocus_tipranks'):
-    os.mkdir(f'.\gurufocus_tipranks')
-DFmerge_tipranks_gurufocus.to_csv(f'.\gurufocus_tipranks\DFmerge_tipranks_gurufocus.csv_{current_datetime}.csv',index=False)
+# if not os.path.exists(f'.\gurufocus_tipranks'):
+#     os.mkdir(f'.\gurufocus_tipranks')
+# DFmerge_tipranks_gurufocus.to_csv(f'.\gurufocus_tipranks\DFmerge_tipranks_gurufocus.csv_{current_datetime}.csv',index=False)
 
 
 # list(DFmerge_tipranks_gurufocus.query('SmartScore>8 & GFValuediff>25 & `Market Capitalization`>10e9').Ticker)
